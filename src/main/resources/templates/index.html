@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+
+<head>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+
+	<table class="table table-bordered table-stripped">
+
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Brand</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${userList}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.username}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.password}"></td>
+				<td>
+					<img th:if="${user.photoPath}" th:src="${user.photoPath}"
+						style="height: 100px; width: 100px;" alt="No Image" />
+<!--					<img th:if="${user.photo}" th:src="${'data:image/png;base64, ' + user.photo}"-->
+<!--						style="height: 100px; width: 100px;" alt="No Image" />-->
+				</td>
+				<td>
+					<a th:href="@{/user/edit/{id}(id=${user.id})}">
+						<button>Edit</button>
+					</a>
+					<a th:href="@{/user/delete/{id}(id=${user.id})}">
+						<button>Delete</button>
+					</a>
+				</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+</body>
+
+</html>

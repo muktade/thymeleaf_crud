@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+
+<head></head>
+
+<body>
+
+<form action="#" th:action="@{/user/save}" th:object="${user}" method="post"
+      enctype="multipart/form-data">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <div>
+        <label> Username </label>
+        <input type="text" th:field="*{username}"/>
+    </div>
+
+    <div>
+        <label> Email </label>
+        <input type="text" th:field="*{email}"/>
+    </div>
+
+    <div>
+        <label> Password </label>
+        <input type="password" th:field="*{password}"/>
+    </div>
+
+    <div>
+        <label> Upload a photo </label>
+        <input type="file" th:field="*{photo}"/>
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+
+</body>
+
+</html>
